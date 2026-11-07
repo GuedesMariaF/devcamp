@@ -50,7 +50,6 @@ export function SignInForm() {
 							id={emailId}
 							type="email"
 							autoComplete="email"
-							placeholder="voce@empresa.com"
 							aria-invalid={fieldState.invalid}
 							{...field}
 						/>

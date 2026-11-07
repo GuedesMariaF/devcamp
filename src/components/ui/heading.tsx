@@ -7,17 +7,21 @@ const Heading = React.forwardRef<
 	HTMLDivElement,
 	React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-	<div ref={ref} className={cn("space-y-0.5", className)} {...props} />
+	<div
+		ref={ref}
+		className={cn("flex flex-col gap-1.5", className)}
+		{...props}
+	/>
 ));
 
 Heading.displayName = "Heading";
 
-const headingTitleVariants = cva("font-semibold leading-none tracking-tight", {
+const headingTitleVariants = cva("font-display font-bold text-foreground", {
 	variants: {
 		size: {
-			default: "text-2xl",
-			sm: "text-lg",
-			lg: "text-3xl",
+			default: "text-heading-h1",
+			sm: "text-heading-h2",
+			lg: "text-display-l",
 		},
 	},
 	defaultVariants: {
@@ -44,9 +48,9 @@ HeadingTitle.displayName = "HeadingTitle";
 const headingDescriptionVariants = cva("text-muted-foreground", {
 	variants: {
 		size: {
-			default: "text-sm",
-			sm: "text-xs",
-			lg: "text-base",
+			default: "text-body-m",
+			sm: "text-label-s",
+			lg: "text-body-l",
 		},
 	},
 	defaultVariants: {
@@ -71,10 +75,25 @@ const HeadingDescription = React.forwardRef<
 
 HeadingDescription.displayName = "HeadingDescription";
 
+/** Rótulo em mono acima do título (ex.: "MEUS PROJETOS / API-PAGAMENTOS"). */
+const HeadingEyebrow = React.forwardRef<
+	HTMLParagraphElement,
+	React.HTMLAttributes<HTMLParagraphElement>
+>(({ className, ...props }, ref) => (
+	<p
+		ref={ref}
+		className={cn("text-code-label text-muted-foreground uppercase", className)}
+		{...props}
+	/>
+));
+
+HeadingEyebrow.displayName = "HeadingEyebrow";
+
 export {
 	Heading,
 	HeadingTitle,
 	HeadingDescription,
+	HeadingEyebrow,
 	headingTitleVariants,
 	headingDescriptionVariants,
 };

@@ -9,6 +9,7 @@ import {
 import {
 	Heading,
 	HeadingDescription,
+	HeadingEyebrow,
 	HeadingTitle,
 } from "@/components/ui/heading";
 import { useAuth } from "@/hooks/use-auth";
@@ -23,9 +24,8 @@ function DashboardPage() {
 	return (
 		<>
 			<Heading>
-				<HeadingTitle className="font-medium">
-					Olá{user?.name ? `, ${user.name}` : ""}
-				</HeadingTitle>
+				<HeadingEyebrow>Dashboard</HeadingEyebrow>
+				<HeadingTitle>Olá{user?.name ? `, ${user.name}` : ""}</HeadingTitle>
 				<HeadingDescription>Visão geral da aplicação</HeadingDescription>
 			</Heading>
 
